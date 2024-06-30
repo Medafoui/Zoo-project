@@ -1,10 +1,6 @@
-CONTRIBUTORS
+# Zoo Management System
 
-	- MOHAMED AFIF CHIFAOUI - 100452024
-	- DIMITAR-DELYAN ILEV   - 100491346
-
-
-
+Zoo Management System is a web application designed to manage and streamline zoo operations, including animal information display, activity booking, user authentication, and administrative functionalities.
 TEMPLATES used
 
 1) animal and animals to display information of corresponding animal
@@ -22,47 +18,6 @@ TEMPLATES used
 
 
 
-
-
-USERS to try
-
-	- Customer 1
-
-		email: customer1@gmail.com
-		password: 123
-	
-
-	- Customer 2
-
-		email: uc3mzoo@gmail.com
-		password: webapps2022
-	
-
-	- Manager/administrator
-	
-		email:manager1@manager1.com
-		password:123
-
-
-
-ADDITIONAL FUNCTIONALITIES
-
-
-We added a few additional functionalities in the following views:
-
-1) Manager view:
-
-	- A manager can edit the date of a scheduled date
-	- A manager can delete a scheduled activity when it is still not reserved 		  by any customer
-
-2) Confirmation email
-
-Implemented in views.py (controllers file) where the customer can receive a confirmation email with details of the booked activity.
-
-
-ADDITIONAL LIBRARIES 
-
-1) Flask_Mail library for confirmation email
 
 
 
