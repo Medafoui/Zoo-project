@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{%block title%} Activity view {%endblock%}
+
+{%block scipts%}
+{%endblock%}
+
+{%block content%}
+<div class="activities">
+    {% for activity in activities %}
+        
+        <div class="activity">
+            <div class="activity_name"><a href="{{url_for('views.activity', id=activity.id)}}">{{activity.title}}</a></div>
+
+            <div class="description">
+                <h4>Description:</h4>
+                <p>{{activity.information}}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{%endblock%}

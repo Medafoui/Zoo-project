@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %} Manager View {% endblock %}
+
+{% block content %}
+
+<h2>SELECT A NEW ACTIVITY</h2>
+
+{% if scheduled!= None %}
+<section class='form'>
+    <form action="{{ url_for('views.manager') }}" method="post">
+
+        <div>
+            <label>Activity: <br></label>
+            <select name="activity" required>
+                {% for activity in activities %}
+                    <option value="{{activity.id}}">{{activity.title}}</option>
+                {% endfor %}
+            </select>
+
+        </div>
+
+        <div>
+            <label><br>Day</br></label>
+            <input type="date" name="date" id="date" required>
+
+        </div>
+
+        <div>
+            <label><br>Time:<br></label>
+            <input type="time" name="time" min="09:00" max="18:00" required>
+        </div>
+        
+        <div>
+            <label><br>Capacity: </br></label>
+            <input type="text" id="capacity" name="capacity" required/>
+        </div>
+
+        <div>
+            <br><label>Price: <input type="text"  id="price" name="price" required/></br></label>
+        </div>
+
+        <div><input class='submit' type="submit" value="Add activity"/></div>
+     
+      
+    </form>
+
+</section>
+
+
+
+
+{% endif %}
+
+
+
+{% endblock %}

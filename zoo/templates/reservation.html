@@ -1,0 +1,56 @@
+{%extends 'base.html'%}
+
+{%block title%} Reservation {%endblock%}
+
+<h2>YOUR RESERVATIONS</h2>
+
+{%block content%}
+{% if scheduled!= None %}
+
+    <section class='form'>
+        <h2>Buy Ticket</h2>
+        <form action="{{ url_for('views.reservation_post') }}" method="post">
+
+            <label>{{scheduled.activity.title}}</label> 
+            <div><select id="scheduled" name="scheduled"></div>
+                {% for act in acts %}
+                    {% if act.id == scheduled.id %} 
+                    <option value="{{act.id}}" selected><b>Day:</b>{{act.date.strftime('%d-%m-%Y')}} Time:{{act.date.strftime('%H:%M')}}</option>
+                    {% else %}
+                    <option value="{{act.id}}"><b>Day:</b>{{act.date.strftime('%d-%m-%Y')}} Time:{{act.date.strftime('%H:%M')}}</option>
+                    {% endif %} 
+
+                
+                {% endfor %}
+                </select>
+            </div>
+
+
+            
+            <div id="available_places">
+                <div><label>Number of places</label>
+                    <input type="number" min="1" max="40" name="num_places" required>
+                
+                </div>
+                <br>
+
+                <div><input class='submit' type="submit" value="Buy"/></div>
+            </div>
+
+
+        </form>
+
+    </section>
+
+{% endif %}
+
+<section class="activity-scheduled">
+    <h2>See all options</h2>
+    {% if acts | length > 0 %} 
+       {% include 'scheduled_table.html' %}
+    {% else %}
+        <p style="text-align: center">THERE ARE NO {{scheduled.activity.title | upper}} NEW SCHEDULED ACTIVITIES SOON</p> 
+    {% endif %} 
+</section>    
+
+{% endblock %}

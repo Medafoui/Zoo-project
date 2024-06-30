@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Manager View {% endblock %}
+
+{% block content %}
+
+<h2>FEATURE AN ACTIVITY</h2>
+
+{% if activity!= None %}
+<section class='form'>
+    <form action="{{ url_for('views.marked') }}" method="post">
+
+        <div>
+            <label>Activity: <br></label>
+            <select name="activity" required>
+                {% for activity in activities %}
+                    <option value="{{activity.id}}">{{activity.title}}</option>
+                {% endfor %}
+            </select>
+
+        </div>
+
+        <div><label>Marked: <input type="checkbox" id="marked" name="marked" value="true"></label></div> 
+        <div><input class='submit' type="submit" value="Mark activity"/></div>
+
+    </form>
+
+</section>
+
+
+
+
+{% endif %}
+
+
+
+{% endblock %}

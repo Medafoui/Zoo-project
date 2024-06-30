@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if scheduled!= None %}
+    <section class='form'>
+        <h2>DELETE A  SCHEDULED ACTIVITY</h2>
+        <form action="{{ url_for('views.delete') }}" method="post">
+  
+            <div>
+                <label>Activity: <br></label>
+                <select name="scheduled" required>
+                    {% for acts in scheduled %} 
+
+                        <option value="{{acts.id}}" selected>{{acts.activity.title}}</option>
+
+                    {% endfor %}
+                </select>
+            
+            </div>
+
+            <div><input class='submit' type="submit" value="Delete"/></div>
+        
+        
+        </form>
+
+    </section>
+{% endif %}
+
+
+{% endblock %}

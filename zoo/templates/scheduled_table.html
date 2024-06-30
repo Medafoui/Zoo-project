@@ -1,0 +1,27 @@
+<table class="table-activity">
+    <thead>
+        <tr>
+            <th>Activity title</th> 
+            <th>Available places</th>
+            <th>Day</th>
+            <th>Time</th>
+        </tr>
+    </thead>
+    <tbody>
+       {% for scheduled in acts %} 
+
+       {% set act = "act" ~ scheduled.id  %} 
+
+       <tr id="{{act}}">
+            <a href="{{ url_for('views.activity', id=scheduled.activity.id)}}"></a>
+            <td>{{scheduled.activity.title}}</td>
+            <td class="places">{{scheduled.available_places}}</td>
+            <td>{{scheduled.date.strftime('%d-%m-%Y')}}</td>
+            <td>{{scheduled.date.strftime('%H:%M')}}</td>
+            <td class="sold"><a class="button" href="{{ url_for('views.reservation',id=scheduled.id) }}">Buy Ticket</a></td>
+
+        </tr>
+
+       {% endfor %} 
+    </tbody>
+</table>

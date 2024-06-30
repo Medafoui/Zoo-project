@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section>
+        <h3 style="text-align: center;background-image: linear-gradient(45deg, #dfdb67, #e1e379);height: 50px;line-height:50px;font-family: 'Courier New', monospace;border-radius: 17px;">&nbsp;&nbsp;Welcome to Your Profile {{current_user.name}}&nbsp;&nbsp;</h3>
+        <h2>Current reservations</h2>
+            {% if future_reservations | length > 0 %}
+                {% set reservations = future_reservations %}
+                {% include 'reservations_table.html' %}
+
+            
+            {% else%}
+                <p style="text-align: center">YOU HAVE NOT BOOKED ANY RESERVATION YET.</p>
+            {% endif %}
+     
+    </section>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{%block title%} Animal view {%endblock%}
+
+{%block scipts%}
+{%endblock%}
+
+{%block content%}
+<div class="animals">
+    {% for animal in animals %}
+        <div class="animal">
+
+            <div class="title">
+                <h4>{{animal.name}}</h4>
+            </div>
+            <div class="animal_name"><a href="{{url_for('views.animal', animal_id=animal.id)}}">
+                <img src="{{ url_for('static', filename=animal.img_path) }}"  width=250px style = "border-radius: 15px;">
+            </a>
+            </div>
+
+        </div>
+
+    {% endfor %}
+</div>
+{%endblock%}

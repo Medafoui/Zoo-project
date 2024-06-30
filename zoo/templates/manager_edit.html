@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if scheduled!= None %}
+    <section class='form'>
+        <h2>EDIT SCHEDULED ACTIVITY</h2>
+        <form action="{{ url_for('views.edit') }}" method="post">
+  
+            <div>
+                <label>Activity: <br></label>
+                <select name="scheduled" required>
+
+                
+
+                    {% for acts in scheduled %} 
+
+                        <option value="{{acts.id}}" selected>{{acts.activity.title}}</option>
+
+
+                    {% endfor %}
+                </select>
+            </div>
+         
+            <div>
+                <label><br>Day</br></label>
+                <input type="date" name="date" id="date" required>
+    
+            </div>
+    
+            <div>
+                <label><br>Time:<br></label>
+                <input type="time" name="time" min="09:00" max="18:00" required>
+            </div>
+            
+            <div><input class='submit' type="submit" value="Modify"/></div>
+        
+        
+        </form>
+
+    </section>
+{% endif %}
+
+
+{% endblock %}

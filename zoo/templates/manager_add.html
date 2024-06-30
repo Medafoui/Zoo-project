@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} Manager View {% endblock %}
+
+{% block content %}
+
+<section class='form'>
+    <h2>CREATE A  NEW ACTIVITY</h2>
+
+    <form action="{{ url_for('views.new_activity') }}" method="post">
+    
+        <div><label>Title: <input type="text" id="name" name="title" required/></label></div>
+        <div><label>Information: <input type="text" id="info" name="information" required/></label></div>
+        <div><label>Minimum age : <input type="text" id="min" name="age_min" /></label></div>
+        <div><label>Maximum age : <input type="text" id="max" name="age_max" /></label></div>
+
+        <div><label>Duration: <input type="text" id="duration"  name="duration" required/></label></div>
+        <div><label>Marked: <input type="checkbox" id="marked" name="marked" value="true"></label></div>
+    
+        <div><input class='submit' type="submit" value="Create activity"/></div>
+
+
+
+
+    </form>
+
+
+</section>
+
+{% endblock %}

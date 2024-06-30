@@ -1,0 +1,26 @@
+
+<table class="table-reservations">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Places Reserved</th>
+        <th>Day</th>
+        <th>Time</th>
+        <th>Booked Day</th>
+      
+    </tr>
+    </thead>
+    <tbody>
+    {% for reservation in reservations %}
+    <tr>
+        <a href="{{ url_for('views.activity', id=reservation.scheduled.activity.id) }}"></a>
+        <td>{{ reservation.scheduled.activity.title }}</td>
+        <td>{{ reservation.booked_places }}</td>
+        <td>{{ reservation.scheduled.date.strftime('%d-%m-%Y') }}</td>
+        <td>{{ reservation.scheduled.date.strftime('%H:%M') }}</td>
+        <td>{{ reservation.date }}</td>
+        
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

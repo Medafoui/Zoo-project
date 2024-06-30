@@ -1,0 +1,11 @@
+{% extends "base.html" %} 
+{% block title %} Signup {% endblock %} 
+{% block content %}
+<h1>This is the signup page</h1>
+{% endblock %}
+
+{% with messages = get_flashed_messages() %}
+    {% for message in messages %}
+        <div class="notification">{{ message }}</div>
+    {% endfor %}
+{% endwith %}

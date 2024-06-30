@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section>
+    <h2>{{activity.title}}</h2>
+    <section class="activity-description">
+        <div class="form" style="display: flex;width:100%;height: auto;">
+            <p style="padding-left: 25px;text-align: left;">
+                <b>Title:</b>{{activity.title}}<br><br>
+                <b>Information:</b>&nbsp;{{activity.information}}<br><br>
+                <b>Duration:</b>&nbsp;{{activity.duration}} min<br><br>
+                {% if activity.min_age != None %} 
+                <b>Recommended age:</b>{{activity.min_age}} - {{activity.max_age}}<br><br>
+                {% else %}
+                <b>NO  MIN AGE REQUIRED</b>
+                {% endif %}  
+            </p>
+        </div>
+    </section>
+
+  
+
+
+</section>
+
+{% endblock %}
